@@ -1,6 +1,6 @@
 {
   "name": "geoareafast",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Calculates area of geo polygon in WGS84 coordinates (fast)",
   "main": "index.js",
   "directories": {

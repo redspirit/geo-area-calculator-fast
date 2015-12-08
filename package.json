@@ -14,8 +14,8 @@
     "test": "nodejs ./qunit-runner.js"
   },
   "repository": {
-    "type": "vcs",
-    "url": "git@github.com:siddthartha/geo-area-calculator-fast.git"
+    "type": "git",
+    "url": "https://github.com/siddthartha/geo-area-calculator-fast.git"
   },
   "keywords": [
     "wgs",

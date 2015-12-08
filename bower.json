@@ -1,0 +1,28 @@
+{
+  "name": "geoareafast",
+  "description": "Calculates area of geo polygon in WGS84 coordinates (fast)",
+  "main": "js/geoarea.js",
+  "authors": [
+    "Kulikov Roman",
+    "Anton Sadovnikoff"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "wgs",
+    "84",
+    "polygon",
+    "area",
+    "coordinates"
+  ],
+  "homepage": "https://github.com/siddthartha/geo-area-calculator-fast",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "vendor",
+    "helpers"
+  ]
+}

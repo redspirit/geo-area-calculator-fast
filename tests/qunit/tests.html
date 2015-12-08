@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Test getGeoPolygonArea()</title>
+        <title>Test getGeoPolygonAreaFast()</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../assets/require.css">
@@ -27,7 +27,7 @@ and open the template in the editor.
             var area = FFGeo.getGeoPolygonAreaFast( polygon );
 
             QUnit.test( "Total area of test polygon 36.52 ha", function( assert ) {
-                assert.ok( area === 363024.4218368292, area +" sq.meters" );
+                assert.equal( area, 365200., area +" sq.meters" );
             });
             
             // кадастровый участок из одного полигона 69:04:0000012:914
@@ -39,7 +39,7 @@ and open the template in the editor.
             var area2 = FFGeo.getGeoPolygonAreaFast( polygon2 );
 
             QUnit.test( "Total area of test polygon 171.42 ha", function( assert ) {
-                assert.ok( area2 === 1725575.039766004, area2 +" sq.meters" );
+                assert.equal( area2, 1714200., area2 +" sq.meters" );
             });
 
         </script>

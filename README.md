@@ -47,7 +47,7 @@ alert( ffGeo.getGeoPolygonAreaFast(
 PHP
 -----
 ```php
-use siddthartha\geo\area\fast\helpers\GeoAreaCalculator;
+use siddthartha\geo\area\fast\helpers\GeoAreaFastCalculator;
 
 echo GeoAreaFastCalculator::getArea(
         [

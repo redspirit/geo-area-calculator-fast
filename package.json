@@ -1,32 +1,32 @@
 {
-    "name": "geoareafast",
-    "version": "0.0.1",
-    "description": "Calculates area of geo polygon in WGS84 coordinates (fast)",
-    "main": "index.js",
-    "directories": {
-        "test": "tests/qunit"
-    },
-    "dependencies": {
-        "qunit": "^0.7.7"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "nodejs ./qunit-runner.js"
-    },
-    "repository": {
-        "type": "vcs",
-        "url": "git@github.com:siddthartha/geo-area-calculator-fast.git"
-    },
-    "keywords": [
-        "wgs",
-        "84",
-        "polygon",
-        "area",
-        "coordinates"
-    ],
-    "author": "Kulikov Roman",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/siddthartha/geo-area-calculator-fast/issues"
-    }
+  "name": "geoareafast",
+  "version": "0.0.2",
+  "description": "Calculates area of geo polygon in WGS84 coordinates (fast)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests/qunit"
+  },
+  "dependencies": {
+    "qunit": "^0.7.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodejs ./qunit-runner.js"
+  },
+  "repository": {
+    "type": "vcs",
+    "url": "git@github.com:siddthartha/geo-area-calculator-fast.git"
+  },
+  "keywords": [
+    "wgs",
+    "84",
+    "polygon",
+    "area",
+    "coordinates"
+  ],
+  "author": "Kulikov Roman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siddthartha/geo-area-calculator-fast/issues"
+  }
 }

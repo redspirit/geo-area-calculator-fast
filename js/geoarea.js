@@ -7,7 +7,7 @@
  * портирование ?? алгоритма на JavaScript 
  * источник: 
  */
-FFGeo = (function () {
+ffGeo = (function () {
     var _this = {};
 
     /**

@@ -7,8 +7,7 @@
  * портирование ?? алгоритма на JavaScript 
  * источник: 
  */
-ffGeo = (function () {
-    var _this = {};
+ffGeo = (function ( _this ) {
 
     /**
      * NO LAST POINT on input ! now
@@ -54,4 +53,8 @@ ffGeo = (function () {
     _this.getGeoPolygonAreaFast = getGeoPolygonAreaFast;
 
     return _this;
-}());
+}( typeof ffGeo !== 'undefined' ? ffGeo : {} ));
+
+if(! typeof module === 'undefined' ) {
+    module.exports = ffGeo;
+}

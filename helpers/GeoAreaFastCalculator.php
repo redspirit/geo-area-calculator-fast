@@ -19,29 +19,60 @@ use Exception;
  *
  * @author siddthartha
  */
-class GeoAreaFastCalculator {
-	/**
-	 *
-	 * @param float[][] $coordinates
-	 * @param float     $a
-	 * @param float     $f
-	 *
-	 * @return float area of given polygon in square meters
-	 * @throws Exception
-	 */
-	public static function getArea( $coordinates, $a = 6378137.0, $f = 298.257223563 ) {
-		if ( ! is_array( $coordinates ) || ! is_array( $coordinates[0] ) ) {
-			throw new Exception( "Array of array of floats expected!" );
-		}
+class GeoAreaFastCalculator
+{
 
-		if ( ( $coordinates[0][0] != $coordinates[ count( $coordinates ) - 1 ][0] )
-		     || ( $coordinates[0][1] != $coordinates[ count( $coordinates ) - 1 ][1] )
-		) {
-			$coordinates[] = $coordinates[0];
-		}
+        /**
+         * Get polygon area fast method
+         * 
+         * @param float[][] $polygon
+         * @param float     $a
+         * @param float     $f
+         *
+         * @return float area of given polygon in square meters 
+         * @throws Exception
+         */
+        public static function getArea( $polygon, $a = 6378137.0 )
+        {
+                if( !is_array( $polygon ) || !is_array( $polygon[ 0 ] ) )
+                {
+                        throw new Exception( "Array of array of floats expected!" );
+                }
 
+                if( ( $polygon[ 0 ][ 0 ] != $polygon[ count( $polygon ) - 1 ][ 0 ] ) || ( $polygon[ 0 ][ 1 ] != $polygon[ count( $polygon ) - 1 ][ 1 ] )
+                )
+                {
+                        $polygon[] = $polygon[ 0 ];
+                }
 
-		return $area;
-	}
+                $total    = 0;
+                $previous = $polygon[ 0 ];
+                $cx       = 0;
+                $cy       = 0;
 
+                for( $i = 1; $i < count( $polygon ); $i++ )
+                {
+                        $cx = $cx + $polygon[ $i ][ 1 ];
+                        $cy = $cy + $polygon[ $i ][ 0 ];
+                }
+                $cx = $cx / count( $polygon );
+                $cy = $cy / count( $polygon );
+
+                $xRef = $cx + 1;
+                $yRef = $cy + 1;
+
+                for( $i = 1; $i < count( $polygon ); $i++ )
+                {
+                        $current      = $polygon[ $i ];
+                        $earthRadians = ($a * pi() / 180);
+                        // convert to cartesian coordinates in meters, note this not very exact
+                        $x1           = (($previous[ 1 ] - $xRef) * $earthRadians) * cos( $yRef * pi() / 180 );
+                        $y1           = (($previous[ 0 ] - $yRef) * $earthRadians);
+                        $x2           = (($current[ 1 ] - $xRef) * $earthRadians) * cos( $yRef * pi() / 180 );
+                        $y2           = (($current[ 0 ] - $yRef) * $earthRadians);
+                        $total       += ($x1 * $y2) - ($x2 * $y1);
+                        $previous     = $current;
+                }
+                return 0.5 * abs( $total );
+        }
 }

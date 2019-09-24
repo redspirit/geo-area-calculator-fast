@@ -5,60 +5,34 @@
 Статья источник: 
 
 # Установка
-В корне модуля:
+В корне проекта:
 ```sh
-.../geo-area-calculator-fast$ composer install
-```
-Если необходимы js-тесты:
-```sh
-.../geo-area-calculator-fast$ npm install
-```
-# Тесты
-PHP
------
-```sh
-.../geo-area-calculator-fast$ phpunit
-```
-
-JavaScript
------
-```sh
-.../geo-area-calculator-fast$ npm test
+$ npm install https://github.com/redspirit/geo-area-calculator-fast --save
 ```
 
 # Примеры
 
-JavaScript
------
 ```js
-alert( ffGeo.getGeoPolygonAreaFast(
-			[
-				[ -10.812317, 18 ],
-				[ 10.812317, -18 ],
-				[ 26.565051,  18 ],
-				[ 52.622632, -18 ],
-				[ 52.622632,  54 ],
-				[ 10.812317,  54 ],
-				[ -10.812317, 18 ],
-			]
-) );
+let ffGeo = require('geoareafast');
+
+let area = ffGeo(
+    [
+        [ -10.812317, 18 ],
+        [ 10.812317, -18 ],
+        [ 26.565051,  18 ],
+        [ 52.622632, -18 ],
+        [ 52.622632,  54 ],
+        [ 10.812317,  54 ],
+        [ -10.812317, 18 ],
+    ]
+)
+
+console.log('area', area);
 ```
 
-PHP
------
-```php
-use siddthartha\geo\area\fast\helpers\GeoAreaFastCalculator;
-
-echo GeoAreaFastCalculator::getArea(
-        [
-                [ -10.812317, 18 ],
-                [ 10.812317, -18 ],
-                [ 26.565051,  18 ],
-                [ 52.622632, -18 ],
-                [ 52.622632,  54 ],
-                [ 10.812317,  54 ],
-                [ -10.812317, 18 ],
-        ]
-);
-// 33953235824742.51 (sq.meters)
+Ответ:  
+m - квадратные метры  
+km - квадратные километры
+```sh
+area { m: 35888490777120.08, km: 35888490.777120076 }
 ```
